@@ -17,6 +17,8 @@ jobs:
       # build and push Docker image
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
+          echo $TAG
+          echo "La ruta actual es la siguiente => $(pwd)"
           docker build -t buildah-circleci:$TAG /home/circleci/circleci-containerfiles/buildah/Dockerfile
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER --password-stdin
           docker push $DOCKERHUB_USER/buildah:$TAG
