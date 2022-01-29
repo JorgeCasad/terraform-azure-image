@@ -21,6 +21,6 @@ jobs:
             docker build -t terraform-azure-cli:$TAG -f /home/circleci/project/terraform-azure/Dockerfile .
             docker tag terraform-azure-cli:$TAG $DOCKERHUB_USER/terraform-azure-cli:$TAG
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER --password-stdin
-            docker push $DOCKERHUB_USER/buildah:$TAG
+            docker push $DOCKERHUB_USER/terraform-azure-cli:$TAG
             echo "The image has been pushed in this repository => ${DOCKERHUB_USER}/terraform-azure-cli:${TAG}"
             rm -f /home/circleci/.docker/config.json
