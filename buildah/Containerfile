@@ -1,0 +1,6 @@
+FROM centos:centos7.9.2009
+LABEL com.circleci.preserve-entrypoint=true
+
+RUN yum -y install podman buildah
+
+ENTRYPOINT ["/bin/bash"]
